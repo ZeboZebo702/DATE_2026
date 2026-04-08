@@ -1,0 +1,30 @@
+// Benchmark "mult_3x3_8_out" written by ABC on Fri May 27 19:45:51 2022
+
+module mult_3x3_8 ( 
+    a1, a2, a3, b1, b2, b3,
+    r1,r2,r3,r4,r5,r6,r7,r8,r9  );
+  input  a1, a2, a3, b1, b2, b3;
+  output r1,r2,r3,r4,r5,r6,r7,r8,r9;
+  wire n17, n19, n20, n22, n23, n25, n26, n27, n29, n30;
+  assign r7 = 1'b0;
+  assign r1 = a1 & b1 & ~n17;
+  assign n17 = (~a2 | (~b2 & (~a3 | ~b3))) & (~a3 | ~b2 | ~b3);
+  assign r2 = n20 | (a1 & ~n19);
+  assign n19 = (~a2 & (~b1 | (a3 & b2 & b3))) | (a2 & ((b2 & (~b3 | (~a3 & b1))) | (a3 & ~b2 & b3))) | (~b1 & ~b2);
+  assign n20 = b2 & b1 & a3 & ~a1 & a2;
+  assign r3 = (a1 & ~n23) | (a2 & ~n22);
+  assign n22 = (~b1 | ((a1 | (a3 & b2)) & (a3 | ~b3) & (b2 | b3))) & (a1 | ~a3 | b1 | ~b2 | ~b3);
+  assign n23 = (~a3 | ((b2 | ~b3 | a2 | ~b1) & (~b2 | b3))) & (~b2 | ((a2 | (a3 & b1)) & (b1 | b3)));
+  assign r4 = n27 | (a2 & ~n26) | (a1 & ~n25);
+  assign n25 = a3 ? (b1 ? (b2 | b3) : ~b3) : (~b3 | (a2 & b2));
+  assign n26 = (a1 | (a3 ? (~b1 | b2) : ~b2)) & (~b2 | b3 | (a3 & b1));
+  assign n27 = a3 & b1 & (b3 ? ~a1 : ~a2);
+  assign r5 = n30 | (b2 & ~n29);
+  assign n29 = (~a3 & (~a2 | ~b3 | (a1 & b1))) | (a2 & a3 & b3);
+  assign n30 = a2 & b3 & (~b2 | (~a3 & b1));
+  assign r6 = a3 & b3;
+  assign r8 = r7;
+  assign r9 = r7;
+endmodule
+
+
